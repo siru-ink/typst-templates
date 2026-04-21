@@ -25,6 +25,8 @@
   signature-image: none,
   // Listing of attachments that will be send along with the letter (e.g. "("Resume", ...)")
   attachments: none,
+  // Attachments section title to use (defaults to "Anhänge")
+  attachments-title: "Anhänge:",
   // Body text content
   content,
 ) = {
@@ -106,7 +108,7 @@
 
   // Optional listing of attachments following the letter
   if attachments != none {
-    text(weight: 700, "Anhänge:")
+    text(weight: 700, attachments-title)
     linebreak()
     for item in attachments {
       [- #item]
