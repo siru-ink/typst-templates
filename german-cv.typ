@@ -10,7 +10,7 @@
   body,
 ) = {
   // Sets document metadata
-  set document(author: name, title: "Lebenslauf" + name)
+  set document(author: name, title: "Lebenslauf " + name)
 
   // Document-wide formatting, including font and margins
   set text(
