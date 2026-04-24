@@ -1,3 +1,17 @@
+#let translations = (
+  en: (
+    salutation: "Dear ",
+    closing: "Sincerely,",
+    attachments-title: "Attachements:",
+  ),
+  de: (
+    salutation: "",
+    closing: "Mit freundlichen Grüßen",
+    attachments-title: "Anhähnge:",
+  ),
+)
+
+
 #let letter(
   // Title of the person sending the letter
   sender-name: "",
@@ -16,17 +30,13 @@
   // Single subject line describing the letter
   subject-line: "",
   // Opening words for the letter (e.g. "Dear ...", "To whom it may concern ...")
-  salutation: "",
-  // Closing words for the letter (e.g. "Sincerely ...", "Best ...")
-  closing: "",
+  salutation-addition: "",
   // spellchecking language to use
   lang: "de",
   // Reference path to a digital image of the signature of the letter sender
   signature-image: none,
   // Listing of attachments that will be send along with the letter (e.g. "("Resume", ...)")
   attachments: none,
-  // Attachments section title to use (defaults to "Anhänge")
-  attachments-title: "Anhänge:",
   // Body text content
   content,
 ) = {
@@ -60,7 +70,7 @@
   // Receiver information on left of letter
   text(weight: 700, receiver-name)
   linebreak()
-  if receiver-email != none {
+  if receiver-email != "" {
     link("mailto:" + receiver-email, receiver-email)
   } else {
     receiver-address
@@ -81,34 +91,34 @@
   // Subject line
   text(weight: 700, size: 14pt, subject-line)
 
-  v(item-spacing)
+  v(item-spacing * 0.7)
 
   // Opening words
-  salutation + ","
+  translations.at(lang).salutation + salutation-addition
   linebreak()
 
-  v(item-spacing)
+  v(item-spacing * 0.3)
 
   // Main body content
   content
   linebreak()
 
-  v(item-spacing)
+  v(item-spacing * 0.3)
 
   // Closing words, with an optional signature image
-  closing
+  translations.at(lang).closing
   linebreak()
   if signature-image != none {
-    v(item-spacing)
     image(signature-image, height: 1cm)
   }
+  v(-10pt)
   sender-name
 
   v(1fr)
 
   // Optional listing of attachments following the letter
   if attachments != none {
-    text(weight: 700, attachments-title)
+    text(weight: 700, translations.at(lang).attachments-title)
     linebreak()
     for item in attachments {
       [- #item]
