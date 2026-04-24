@@ -110,3 +110,36 @@
 ) = {
   text(weight: 700, title) + h(8pt) + link("https://" + url, "(" + url + ")") + h(1fr) + dates
 }
+
+#let edu(
+  degree: "",
+  gpa: "",
+  latin-honors: "",
+  institution: "",
+  location: "",
+  dates: "",
+) = {
+  text(weight: 700, degree)
+  if gpa != "" {
+    h(5pt)
+    sym.bar.v
+    h(5pt)
+    text(style: "italic", gpa)
+  }
+  if latin-honors != "" {
+    h(5pt)
+    sym.bar.v
+    h(5pt)
+    text(style: "italic", latin-honors)
+  }
+
+  h(1fr)
+  dates
+
+  linebreak()
+
+  text(style: "italic", institution)
+  h(1fr)
+  text(style: "italic", location)
+}
+
