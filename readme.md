@@ -10,5 +10,5 @@ A collection of clean, customizable Typst templates for common document types, w
 
 | Template | Description | Last Modified |
 |----------|-------------|---|
-| **German-style CV** `german-cv.typ` | Professional CV template tailored for German-speaking contexts with support for education, work experience, projects, and skills sections. Features customizable accent colors, second-page header, and proper German formatting. | April 2024 |
-| **Simple A4 Letterhead** `simple-a4-letter.typ` | Clean business letter template following some DIN 5008-B standards for German correspondence. Includes sender/receiver information, date, subject line, signature support, attachment listing, and automatic folding marks for standard envelopes. | April 2024 |
+| **German-style CV** `german-cv.typ` | Professional CV template tailored for German-speaking contexts with support for education, work experience, projects, and skills sections. Features customizable accent colors, second-page header, and proper German formatting. | April 2026 |
+| **Simple A4 Letterhead** `simple-a4-letter.typ` | Clean business letter template following some DIN 5008-B standards for German correspondence. Includes sender/receiver information, date, subject line, signature support, attachment listing, and automatic folding marks for standard envelopes. | April 2026 |
